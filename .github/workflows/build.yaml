@@ -1,0 +1,34 @@
+name: Backend CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: api  # Specifies the path to the backend directory
+
+      - name: Run tests
+        run: npm test
+        working-directory: api  # Specifies the path to the backend directory
+
+      - name: Build application
+        run: npm run build
+        working-directory: api  # Specifies the path to the backend directory
