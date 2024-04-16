@@ -31,7 +31,7 @@ jobs:
         run: docker build -t api:latest .
         working-directory: api
 
-      # Push the Docker image to a registry (replace with your registry)
+      # Push the Docker image to a registry (replace with your registry)c
       - name: Push Docker image
         run: |
           echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
