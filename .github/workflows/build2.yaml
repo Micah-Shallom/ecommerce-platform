@@ -28,7 +28,7 @@ jobs:
 
       # Build the Docker image
       - name: Build Docker image
-        run: docker build -t api:latest .
+        run: docker build -t mshallom/api:latest .
         working-directory: api
 
       # Push the Docker image to a registry (replace with your registry)c
