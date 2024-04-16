@@ -1,4 +1,4 @@
-name: Backend CI
+name: Full Stack CI
 
 on:
   push:
@@ -15,20 +15,28 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
 
-      - name: Install dependencies
+      # Build the backend
+      - name: Install backend dependencies
         run: npm install
-        working-directory: api  # Specifies the path to the backend directory
+        working-directory: api
 
-    #   - name: Run tests
-    #     run: npm test
-    #     working-directory: api  # Specifies the path to the backend directory
+      # Build the frontend
+      - name: Install frontend dependencies
+        run: npm install
+        working-directory: app/frontend
 
-      - name: Build application
+      - name: Build frontend
         run: npm run build
-        working-directory: api  # Specifies the path to the backend directory
+        working-directory: app/frontend
+
+      # Run backend test
+      # - name: Run backend tests
+      #   run: npm test
+      #   working-directory: api
+
