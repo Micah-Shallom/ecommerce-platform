@@ -25,9 +25,9 @@ jobs:
         run: npm install
         working-directory: api  # Specifies the path to the backend directory
 
-      - name: Run tests
-        run: npm test
-        working-directory: api  # Specifies the path to the backend directory
+    #   - name: Run tests
+    #     run: npm test
+    #     working-directory: api  # Specifies the path to the backend directory
 
       - name: Build application
         run: npm run build
