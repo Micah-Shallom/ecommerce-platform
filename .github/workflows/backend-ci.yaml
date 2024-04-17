@@ -21,6 +21,14 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v2
+        with:
+            path: ~/.npm
+            key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-npm-
+
       - name: Install backend dependencies
         run: npm install
         working-directory: api
