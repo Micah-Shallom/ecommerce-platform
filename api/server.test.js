@@ -30,39 +30,39 @@ describe('API Endpoints', () => {
     productId = res.body.id;
   });
 
-//   // Test for getting all products
-//   it('should get all products', async () => {
-//     const res = await request(app).get('/products');
+  // Test for getting all products
+  it('should get all products', async () => {
+    const res = await request(app).get('/products');
     
-//     expect(res.statusCode).toEqual(200);
-//     expect(Array.isArray(res.body)).toBeTruthy();
-//   });
+    expect(res.statusCode).toEqual(200);
+    expect(Array.isArray(res.body)).toBeTruthy();
+  });
 
-//   // Test for getting a single product
-//   it('should get a single product', async () => {
-//     const res = await request(app).get(`/products/${productId}`);
+  // Test for getting a single product
+  it('should get a single product', async () => {
+    const res = await request(app).get(`/products/${productId}`);
     
-//     expect(res.statusCode).toEqual(200);
-//     expect(res.body).toHaveProperty('name', 'Test Product');
-//   });
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('name', 'Test Product');
+  });
 
-//   // Test for updating a product
-//   it('should update a product', async () => {
-//     const res = await request(app)
-//       .put(`/products/${productId}`)
-//       .send({ name: 'Updated Product', price: 15.99 });
+  // Test for updating a product
+  it('should update a product', async () => {
+    const res = await request(app)
+      .put(`/products/${productId}`)
+      .send({ name: 'Updated Product', price: 15.99 });
     
-//     expect(res.statusCode).toEqual(200);
-//     expect(res.body).toHaveProperty('name', 'Updated Product');
-//   });
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('name', 'Updated Product');
+  });
 
-//   // Test for deleting a product
-//   it('should delete a product', async () => {
-//     const res = await request(app).delete(`/products/${productId}`);
+  // Test for deleting a product
+  it('should delete a product', async () => {
+    const res = await request(app).delete(`/products/${productId}`);
     
-//     expect(res.statusCode).toEqual(200);
-    // expect(res.body).toHaveProperty('message', 'Product deleted successfully');
-//   });
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('message', 'Product deleted successfully');
+  });
 });
 
 
